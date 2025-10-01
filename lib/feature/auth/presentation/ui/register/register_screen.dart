@@ -15,29 +15,31 @@ class RegisterScreen extends StatelessWidget {
 
 body: Padding(
   padding: const EdgeInsets.symmetric(vertical: 28,horizontal: 22),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text("Hello! Register to get \nstarted",style: TextStyle(
-        fontSize: 30,
-        color: AppColor.dark,
-        
-      ),),
-      SizedBox(height: 32,),
-    CustomTextFormFeild(hintText: "Username"),
-    SizedBox(height: 11,),
-    CustomTextFormFeild(hintText: "Email"),
-    SizedBox(height: 11,),
-    CustomTextFormFeild(hintText: "Password",isPassword: true,),
-    SizedBox(height: 11,),
-    CustomTextFormFeild(hintText: "Confirm password",isPassword: true,),
-    SizedBox(height: 35,),
-    MasterBotton(title: "Register"),
-    SizedBox(height: 260,),
-    TextRich(text1: "Already have an account?", text2: "Login Now")
-
-
-    ],
+  child: SingleChildScrollView(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text("Hello! Register to get \nstarted",style: TextStyle(
+          fontSize: 30,
+          color: AppColor.dark,
+          
+        ),),
+        SizedBox(height: 32,),
+      CustomTextFormFeild(hintText: "Username"),
+      SizedBox(height: 11,),
+      CustomTextFormFeild(hintText: "Email"),
+      SizedBox(height: 11,),
+      CustomTextFormFeild(hintText: "Password",isPassword: true,),
+      SizedBox(height: 11,),
+      CustomTextFormFeild(hintText: "Confirm password",isPassword: true,),
+      SizedBox(height: 35,),
+      MasterBotton(title: "Register"),
+      SizedBox(height: 215,),
+      TextRich(text1: "Already have an account?", text2: "Login Now")
+    
+    
+      ],
+    ),
   ),
 ),
 

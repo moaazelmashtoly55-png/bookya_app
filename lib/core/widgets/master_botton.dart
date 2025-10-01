@@ -27,7 +27,7 @@ class MasterBotton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           color: backgroundcolor ?? AppColor.primary,
         ),
-        child: Text("Login", style: TextStyle(fontSize: 15, color:textcolor?? Colors.white)),
+        child: Text(title, style: TextStyle(fontSize: 15, color:textcolor?? Colors.white)),
       ),
     );
   }
