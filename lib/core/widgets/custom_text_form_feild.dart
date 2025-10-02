@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 class CustomTextFormFeild extends StatefulWidget {
   final bool isPassword;
   final String hintText;
+  final TextEditingController? controller;
   const CustomTextFormFeild({
     super.key,
     required this.hintText,
-    this.isPassword = false,
+    this.isPassword = false,  this.controller,
   });
 
   @override
@@ -19,6 +20,7 @@ class _CustomTextFormFeildState extends State<CustomTextFormFeild> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller:widget.controller ,
       obscureText: widget.isPassword&&obscureText,
       decoration: InputDecoration(
         fillColor: AppColor.lightgray,
