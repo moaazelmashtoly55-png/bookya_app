@@ -2,7 +2,7 @@ import 'package:bookya_app/core/theme/app_color.dart';
 import 'package:bookya_app/core/widgets/custom_app_bar.dart';
 import 'package:bookya_app/core/widgets/master_botton.dart';
 import 'package:bookya_app/core/widgets/text_rich.dart';
-import 'package:bookya_app/feature/auth/presentation/ui/create%20new%20pass/create_new_pass.dart';
+import 'package:bookya_app/feature/option_login/presentation/ui/create%20new%20pass/create_new_pass.dart';
 import 'package:flutter/material.dart';
 
 class MassegeEmailScreen extends StatelessWidget {

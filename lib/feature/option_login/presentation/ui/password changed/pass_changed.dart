@@ -1,6 +1,6 @@
 import 'package:bookya_app/core/theme/app_color.dart';
 import 'package:bookya_app/core/widgets/master_botton.dart';
-import 'package:bookya_app/feature/auth/presentation/ui/login/login_screen.dart';
+import 'package:bookya_app/feature/option_login/presentation/ui/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

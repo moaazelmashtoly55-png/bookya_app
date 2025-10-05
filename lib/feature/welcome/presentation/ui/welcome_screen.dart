@@ -1,8 +1,8 @@
 import 'package:bookya_app/core/theme/app_color.dart';
 import 'package:bookya_app/core/widgets/master_botton.dart';
-import 'package:bookya_app/feature/auth/presentation/cubit/cubit/auth_cubit.dart';
-import 'package:bookya_app/feature/auth/presentation/ui/login/login_screen.dart';
-import 'package:bookya_app/feature/auth/presentation/ui/register/register_screen.dart';
+import 'package:bookya_app/feature/option_login/presentation/cubit/cubit/auth_cubit.dart';
+import 'package:bookya_app/feature/option_login/presentation/ui/login/login_screen.dart';
+import 'package:bookya_app/feature/option_login/presentation/ui/register/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,7 +58,12 @@ class WelcomeScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RegisterScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                          create: (context) => AuthCubit(),
+                          child: RegisterScreen(),
+                        ),
+                      ),
                     );
                   },
                   title: "Register",

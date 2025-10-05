@@ -2,7 +2,7 @@ import 'package:bookya_app/core/theme/app_color.dart';
 import 'package:bookya_app/core/widgets/custom_app_bar.dart';
 import 'package:bookya_app/core/widgets/custom_text_form_feild.dart';
 import 'package:bookya_app/core/widgets/master_botton.dart';
-import 'package:bookya_app/feature/auth/presentation/ui/password%20changed/pass_changed.dart';
+import 'package:bookya_app/feature/option_login/presentation/ui/password%20changed/pass_changed.dart';
 import 'package:flutter/material.dart';
 
 class CreateNewPass extends StatelessWidget {

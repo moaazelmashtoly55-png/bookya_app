@@ -1,3 +1,4 @@
+import 'package:bookya_app/feature/auth/data/models/register_request_model.dart';
 import 'package:dio/dio.dart';
 
 class AuthRepo {
@@ -24,7 +25,40 @@ class AuthRepo {
         return Response.data["massege"];
       }
     } catch (e) {
-      return "errorrr $e";
+      return "please login correctly $e";
     }
   }
+
+
+
+
+ static rigester(RegisterRequestModel registerModel)async{
+  try{
+       final Response=await dio.post("/register",
+        data:registerModel.toMap() );
+        
+        if(
+          Response.statusCode==201
+        ){return Response;
+      } else {
+        return Response.data["massege"];
+      }
+  }catch(e){
+
+ return "please register correctly $e";
+
+  }
+
+
+  
 }
+
+
+
+
+
+
+
+
+}
+

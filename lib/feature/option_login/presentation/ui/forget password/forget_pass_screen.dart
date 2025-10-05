@@ -3,7 +3,7 @@ import 'package:bookya_app/core/widgets/custom_app_bar.dart';
 import 'package:bookya_app/core/widgets/custom_text_form_feild.dart';
 import 'package:bookya_app/core/widgets/master_botton.dart';
 import 'package:bookya_app/core/widgets/text_rich.dart';
-import 'package:bookya_app/feature/auth/presentation/ui/massege_email/massege_email_screen.dart';
+import 'package:bookya_app/feature/option_login/presentation/ui/massege_email/massege_email_screen.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPassScreen extends StatelessWidget {
