@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final void Function()? onTap;
-  const CustomAppBar({super.key, this.onTap});
+  final String? title;
+  const CustomAppBar({super.key, this.onTap, this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 11),
       child: AppBar(
         backgroundColor: Colors.white,
+        title: title!=null?Text(title!):null,
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);

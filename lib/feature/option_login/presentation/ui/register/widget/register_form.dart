@@ -4,10 +4,12 @@ import 'package:bookya_app/core/widgets/master_botton.dart';
 import 'package:bookya_app/core/widgets/text_rich.dart';
 import 'package:bookya_app/feature/auth/data/models/register_request_model.dart';
 import 'package:bookya_app/feature/auth/data/cubit/auth_cubit.dart';
+import 'package:bookya_app/feature/bottom_nav_bar/presentation/ui/widget/bottom_nav_bar_screen.dart';
 import 'package:bookya_app/feature/home/presentation/ui/home_screen.dart';
 import 'package:bookya_app/feature/option_login/presentation/ui/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
@@ -113,7 +115,7 @@ bool emailvalid (String email){
                  if(state is RegisterLoadingState){
                   showDialog(barrierDismissible: false,context: context, builder: (context)=>Center(child: CircularProgressIndicator()));
                  }else if(state is RegisterSuccessState){
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (e)=>false);
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>BottomNavBarScreen()), (e)=>false);
                  }else if(state is RegisterErrorState){
                  
                    Navigator.pop(context);
@@ -143,7 +145,7 @@ bool emailvalid (String email){
                   },
                 ),
               ),
-              SizedBox(height: 215),
+              SizedBox(height: 215.h),
               TextRich(
                 text1: "Already have an account?",
                 text2: "Login Now",

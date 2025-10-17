@@ -5,6 +5,7 @@ import 'package:bookya_app/core/widgets/custom_text_form_feild.dart';
 import 'package:bookya_app/core/widgets/master_botton.dart';
 import 'package:bookya_app/core/widgets/text_rich.dart';
 import 'package:bookya_app/feature/auth/data/cubit/auth_cubit.dart';
+import 'package:bookya_app/feature/bottom_nav_bar/presentation/ui/widget/bottom_nav_bar_screen.dart';
 import 'package:bookya_app/feature/option_login/presentation/ui/forget%20password/forget_pass_screen.dart';
 import 'package:bookya_app/feature/home/presentation/ui/home_screen.dart';
 import 'package:bookya_app/feature/option_login/presentation/ui/register/register_screen.dart';
@@ -92,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   } else if (state is LoginSuccessState) {
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                      MaterialPageRoute(builder: (context) => BottomNavBarScreen()),
                       (e) => false,
                     );
                     print("success");

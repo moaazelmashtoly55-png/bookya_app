@@ -1,4 +1,5 @@
 import 'package:bookya_app/core/helper/local_servises.dart';
+import 'package:bookya_app/feature/bottom_nav_bar/presentation/ui/widget/bottom_nav_bar_screen.dart';
 import 'package:bookya_app/feature/home/presentation/ui/home_screen.dart';
 import 'package:bookya_app/feature/welcome/presentation/ui/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ initalScreen(){
   if(LocalServises.prefs?.getString("userToken")==null){
     return WelcomeScreen();
   }else{
-    return HomeScreen();
+    return BottomNavBarScreen();
   }
 
 }
