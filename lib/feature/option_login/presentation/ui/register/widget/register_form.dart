@@ -3,7 +3,9 @@ import 'package:bookya_app/core/widgets/custom_text_form_feild.dart';
 import 'package:bookya_app/core/widgets/master_botton.dart';
 import 'package:bookya_app/core/widgets/text_rich.dart';
 import 'package:bookya_app/feature/auth/data/models/register_request_model.dart';
-import 'package:bookya_app/feature/option_login/presentation/cubit/cubit/auth_cubit.dart';
+import 'package:bookya_app/feature/auth/data/cubit/auth_cubit.dart';
+import 'package:bookya_app/feature/home/presentation/ui/home_screen.dart';
+import 'package:bookya_app/feature/option_login/presentation/ui/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,6 +23,13 @@ class _RegisterFormState extends State<RegisterForm> {
   TextEditingController passwordControlar = TextEditingController();
   TextEditingController passwordConfirmationControlar = TextEditingController();
   TextEditingController cityControlar = TextEditingController();
+
+bool emailvalid (String email){
+ bool emailValid = 
+    RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(email);
+      return emailValid;
+}
 
   @override
   void dispose() {
@@ -54,6 +63,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   if (value == null || value.isEmpty) {
                     return "Name is required";
                   }
+                  return null;
                 },
               ),
               SizedBox(height: 11),
@@ -63,7 +73,10 @@ class _RegisterFormState extends State<RegisterForm> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Email is required";
+                  }else if(!emailvalid(value)){
+                    return "Enter a valid email";
                   }
+                  return null;
                 },
               ),
               SizedBox(height: 11),
@@ -74,7 +87,10 @@ class _RegisterFormState extends State<RegisterForm> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Password is required";
+                  }else if(value.length<8){
+                    return "please write more than 8 numbars";
                   }
+                  return null;
                 },
               ),
               SizedBox(height: 11),
@@ -83,6 +99,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   if (value != passwordControlar.text) {
                     return "confirm password is not match";
                   }
+                  return null;
                 },
                 controller: passwordConfirmationControlar,
                 hintText: "Confirm password",
@@ -91,25 +108,52 @@ class _RegisterFormState extends State<RegisterForm> {
               SizedBox(height: 11),
               CustomTextFormFeild(controller: cityControlar, hintText: "city"),
               SizedBox(height: 35),
-              MasterBotton(
-                title: "Register",
-                onTap: () {
-                  if (formKey.currentState?.validate() ?? false) {
-                    context.read<AuthCubit>().register(
-                      RegisterRequestModel(
-                        name: nameControlar.text,
-                        email: emailControlar.text,
-                        password: passwordControlar.text,
-                        passwordConfirmation:
-                            passwordConfirmationControlar.text,
-                        city: cityControlar.text,
-                      ),
+              BlocListener<AuthCubit, AuthState>(
+                listener: (context, state) {
+                 if(state is RegisterLoadingState){
+                  showDialog(barrierDismissible: false,context: context, builder: (context)=>Center(child: CircularProgressIndicator()));
+                 }else if(state is RegisterSuccessState){
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomeScreen()), (e)=>false);
+                 }else if(state is RegisterErrorState){
+                 
+                   Navigator.pop(context);
+                    showDialog(
+                      context: context,
+                      builder: (context) =>
+                          AlertDialog(content: Text("errorr")),
                     );
-                  }
+                 }
                 },
+                child: MasterBotton(
+                  title: "Register",
+
+                  onTap: () {
+                    if (formKey.currentState?.validate() ?? false) {
+                      context.read<AuthCubit>().register(
+                        RegisterRequestModel(
+                          name: nameControlar.text,
+                          email: emailControlar.text,
+                          password: passwordControlar.text,
+                          passwordConfirmation:
+                              passwordConfirmationControlar.text,
+                          city: cityControlar.text,
+                        ),
+                      );
+                    }
+                  },
+                ),
               ),
               SizedBox(height: 215),
-              TextRich(text1: "Already have an account?", text2: "Login Now"),
+              TextRich(
+                text1: "Already have an account?",
+                text2: "Login Now",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+              ),
             ],
           ),
         ),

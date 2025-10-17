@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:bookya_app/feature/auth/data/models/register_request_model.dart';
 import 'package:bookya_app/feature/auth/data/repo/auth_repo.dart';
-import 'package:dio/dio.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_state.dart';
