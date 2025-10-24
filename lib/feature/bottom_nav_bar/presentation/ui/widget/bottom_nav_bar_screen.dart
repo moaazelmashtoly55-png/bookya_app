@@ -1,3 +1,4 @@
+import 'package:bookya_app/core/theme/app_color.dart';
 import 'package:bookya_app/feature/cart/presentation/ui/cart_screen.dart';
 import 'package:bookya_app/feature/favorit/presentation/ui/favorit_screen.dart';
 import 'package:bookya_app/feature/home/presentation/ui/home_screen.dart';
@@ -36,6 +37,11 @@ bottomNavigationBar: BottomNavigationBar(
     
   },
   currentIndex: currentIndex,
+  selectedItemColor: AppColor.primary,
+  backgroundColor: Colors.white,
+  selectedIconTheme: IconThemeData(size: 26),
+  unselectedItemColor: AppColor.gray,
+
    items: [
 
 BottomNavigationBarItem(icon: Icon(Icons.home),label: "home"),
@@ -46,7 +52,7 @@ BottomNavigationBarItem(icon: Icon(Icons.person),label: "accunt"),
 
 
 ]),
-body:screens[currentIndex] ,
+body:screens[currentIndex ] ,
 
     );
   }

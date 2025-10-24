@@ -13,7 +13,7 @@ class MyAccuntScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "accunt",),
+      appBar: CustomAppBar(title: "accunt",backBottom: false,),
 
     
 

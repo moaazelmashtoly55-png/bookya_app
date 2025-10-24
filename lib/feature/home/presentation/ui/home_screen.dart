@@ -1,8 +1,8 @@
-import 'package:bookya_app/core/helper/local_servises.dart';
-import 'package:bookya_app/core/widgets/custom_app_bar.dart';
-import 'package:bookya_app/core/widgets/master_botton.dart';
-import 'package:bookya_app/feature/welcome/presentation/ui/welcome_screen.dart';
+import 'package:bookya_app/feature/home/presentation/ui/widget/appbar_home.dart';
+import 'package:bookya_app/feature/home/presentation/ui/widget/book_items.dart';
+import 'package:bookya_app/feature/home/presentation/ui/widget/home_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,19 +11,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: CustomAppBar(),
-      body: Column(
-        children: [
-          MasterBotton(title: "moza"),
-          MasterBotton(title: "moza"),
-          MasterBotton(title: "moza"),
-          MasterBotton(title: "moza"),
-          ElevatedButton(onPressed: (){
-            LocalServises.prefs?.remove("userToken");
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()), (e)=>false);
-          }, child: Text("logout"))
-        ],
-      ),
+      body: 
+         SafeArea(
+           child: Padding(
+             padding:  EdgeInsets.symmetric(horizontal: 15.w),
+             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 12.h,),
+               AppbarHome(),
+               SizedBox(height: 25.h,),
+               HomeSlider(),
+              SizedBox(height: 31.h,),
+              Text("Best Seller",style: TextStyle(fontSize: 24),),
+              SizedBox(height: 15.h,),
+              BookItems(),
+              
+
+
+
+
+
+              ],
+                     ),
+           ),
+         ),
+      
     );
   }
 }

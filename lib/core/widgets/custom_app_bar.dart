@@ -4,16 +4,18 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final void Function()? onTap;
   final String? title;
-  const CustomAppBar({super.key, this.onTap, this.title});
+  final bool backBottom;
+  const CustomAppBar({super.key, this.onTap, this.title,  this.backBottom=true});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 11),
       child: AppBar(
+        
         backgroundColor: Colors.white,
         title: title!=null?Text(title!):null,
-        leading: InkWell(
+        leading: backBottom? InkWell(
           onTap: () {
             Navigator.pop(context);
           },
@@ -29,7 +31,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Icon(Icons.arrow_back_ios_new_outlined),
             ),
           ),
-        ),
+        ) :null ,
       ),
     );
   }

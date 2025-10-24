@@ -10,7 +10,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "cart",),
+      appBar: CustomAppBar(title: "cart",backBottom: false,),
 
     
 
