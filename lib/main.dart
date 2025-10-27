@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 void main()async { 
 
 WidgetsFlutterBinding.ensureInitialized();
-DioServices.init();
-await LocalServises.init();
 
+await LocalServises.init();
+DioServices.init();
   runApp(Bookya());
 }

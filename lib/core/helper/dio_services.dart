@@ -1,3 +1,4 @@
+import 'package:bookya_app/core/helper/local_servises.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -5,7 +6,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 class DioServices {
 
 static Dio? dio;
-
+ 
 static init(){
 
 dio = Dio(
@@ -14,6 +15,7 @@ dio = Dio(
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
+        "Authorization":"Bearer${LocalServises.prefs?.getString("userToken")}"
       },
     ),
   );
