@@ -3,6 +3,7 @@
 
 import 'package:bookya_app/core/theme/app_color.dart';
 import 'package:bookya_app/feature/home/data/models/product_model.dart';
+import 'package:bookya_app/feature/home/presentation/ui/widget/custom_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,9 +30,9 @@ class BookItems extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(borderRadius: BorderRadius.circular(17.r),
-              child: Image.network(  product?.image??"",
+              child: CustomNetworkImage(  imageUrl:product?.image??"", width: 140, height: 175, radius: 12,
               
-               width: 140.w,height: 176.h,),
+               ),
             ),
              SizedBox(height: 6.h,),
               Text(product?.name??"",style: TextStyle(fontSize: 18.sp),
@@ -42,7 +43,7 @@ class BookItems extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(product?.price??"",style: TextStyle(fontSize: 16.sp),),
-                  InkWell(onTap: onTapCart,
+                  InkWell(onTap: onTapCart, 
                     child: Container(
                           
                       

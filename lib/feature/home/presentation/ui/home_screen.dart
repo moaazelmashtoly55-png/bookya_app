@@ -33,13 +33,15 @@ class HomeScreen extends StatelessWidget {
                   listener: (context, state) {
 
                     if(state is AddToCartLoading){
-                      showDialog(context: context, builder: (context)=>Center(
+                      showDialog(context: context,
+                       builder: (context)=>Center(
                         child: CircularProgressIndicator(),
-                      ));
+                      )
+                      );
                     }else if(state is AddToCartSuccess){
                       Navigator.pop(context);
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        backgroundColor: Colors.green
+                      backgroundColor: Colors.green
                         ,content: Text("Product Add To Cart")));
                     }
                   },

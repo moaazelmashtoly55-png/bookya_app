@@ -43,7 +43,7 @@ class BookDetialsScreen extends StatelessWidget {
                     
                   padding: EdgeInsets.symmetric(horizontal: 20,vertical:20),
                     decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(5.r)),
-                    child: Text("Buy",style: TextStyle(fontSize: 15.sp,color: Colors.white),),
+                    child: Text("Add to cart",style: TextStyle(fontSize: 15.sp,color: Colors.white),),
       
                   )
                 ],

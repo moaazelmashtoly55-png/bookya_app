@@ -12,7 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 11),
       child: AppBar(
-        
+        centerTitle: true,
         backgroundColor: Colors.white,
         title: title!=null?Text(title!):null,
         leading: backBottom? InkWell(
