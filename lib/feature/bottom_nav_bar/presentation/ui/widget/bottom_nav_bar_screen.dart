@@ -1,4 +1,5 @@
 import 'package:bookya_app/core/theme/app_color.dart';
+import 'package:bookya_app/feature/cart/presentation/cubit/cubit/cart_cubit.dart';
 import 'package:bookya_app/feature/cart/presentation/ui/cart_screen.dart';
 import 'package:bookya_app/feature/favorit/presentation/ui/favorit_screen.dart';
 import 'package:bookya_app/feature/home/presentation/cubit/cubit/home_cubit.dart';
@@ -17,9 +18,14 @@ class BottomNavBarScreen extends StatefulWidget {
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int currentIndex = 0;
   List<Widget> screens = [
-    BlocProvider(create: (context) => HomeCubit()..getHomeSlider()..getBestSellar(), child: HomeScreen()),
+    BlocProvider(
+      create: (context) => HomeCubit()
+        ..getHomeSlider()
+        ..getBestSellar(),
+      child: HomeScreen(),
+    ),
     FavoritScreen(),
-    CartScreen(),
+    BlocProvider(create: (context) => CartCubit()..GetCart(), child: CartScreen()),
     MyAccuntScreen(),
   ];
   @override
